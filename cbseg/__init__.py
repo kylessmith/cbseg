@@ -1,0 +1,7 @@
+"""Init for CBS."""
+
+from __future__ import absolute_import
+from .cbseg import determine_cbs_stat, determine_t_stat, determine_cbs, segment, validate
+
+# This is extracted automatically by the top-level setup.py.
+__version__ = '0.1.0'
