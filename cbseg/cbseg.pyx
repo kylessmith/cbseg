@@ -1,8 +1,24 @@
+import os
 import numpy as np
 cimport numpy as np
 cimport cython
 from libc.stdint cimport uint32_t, int32_t, int64_t
 from ailist cimport AIList, ailist_t
+
+
+def get_include():
+    """
+    Get file directory if C headers
+    
+    Arguments:
+    ---------
+        None
+    Returns:
+    ---------
+        str (Directory to header files)
+    """
+
+    return os.path.split(os.path.realpath(__file__))[0]
 
 
 cdef cbs_stat_t _determine_cbs_stat(double[::1] x):
