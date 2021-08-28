@@ -1,6 +1,7 @@
 # Circular Binary Segmentation
 
 [![Build Status](https://travis-ci.org/kylessmith/cbseg.svg?branch=master)](https://travis-ci.org/kylessmith/cbseg) [![PyPI version](https://badge.fury.io/py/cbseg.svg)](https://badge.fury.io/py/cbseg)
+[![Coffee](https://img.shields.io/badge/-buy_me_a%C2%A0coffee-gray?logo=buy-me-a-coffee&color=ff69b4)](https://www.buymeacoffee.com/kylessmith)
 
 Circular Binary Segmentation (CBS) is an algorithm tests for change-points 
 using a maximal t-statistic with a permutation reference distribution to obtain 
@@ -25,7 +26,8 @@ Dependencies can be installed by:
 
 PyPI install, presuming you have all its requirements installed:
 ```
-    pip install cbseg
+    NOT AVAILABLE...YET
+	pip install cbseg
 ```
 
 ## Usage
