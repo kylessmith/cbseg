@@ -8,12 +8,13 @@
 #include <float.h>
 #include <time.h>
 #include "cbs.h"
-#include "src/augmented_interval_array.h"
+#include "src/labeled_augmented_array.h"
 //#include "utilities.c"
+
 
 //-----------------------------------------------------------------------------
 
-void rsegment(double x[], int start, int end, aiarray_t *L, int shuffles, double p)
+void rsegment_labeled(double x[], int start, int end, labeled_aiarray_t *segments, char *label, int shuffles, double p)
 {   
     int slice_length = end - start;
     //double tmp_slice_x[slice_length];
@@ -27,59 +28,59 @@ void rsegment(double x[], int start, int end, aiarray_t *L, int shuffles, double
 
     if (cbs_stat.threshold == false || (cbs_length < 5) || (cbs_length == slice_length))
     {
-        aiarray_add(L, start, end);
+        labeled_aiarray_add(segments, start, end, label);
     }
     else
     {
         if (cbs_stat.max_start > 0)
         {
-            rsegment(x, start, start + cbs_stat.max_start, L, shuffles, p);
+            rsegment_labeled(x, start, start + cbs_stat.max_start, segments, label, shuffles, p);
         }
         
         if (cbs_length > 0)
         {
-            rsegment(x, start + cbs_stat.max_start, start + cbs_stat.max_end, L, shuffles, p);
+            rsegment_labeled(x, start + cbs_stat.max_start, start + cbs_stat.max_end, segments, label, shuffles, p);
         }
         
         if (start + cbs_stat.max_end < end)
         {
-            rsegment(x, start + cbs_stat.max_end, end, L, shuffles, p);
+            rsegment_labeled(x, start + cbs_stat.max_end, end, segments, label, shuffles, p);
         }
     }
 }
 
 
-aiarray_t *calculate_segment(double x[], int length, int shuffles, double p)
+void calculate_segment_labeled(double x[], int length, labeled_aiarray_t *segments, char *label, int shuffles, double p)
 {
     int start = 0;
     int end = length;
-    aiarray_t *L = aiarray_init();
+    //labeled_aiarray_t *L = labeled_aiarray_init();
 
     srand(time(NULL));
 
-    rsegment(x, start, end, L, shuffles, p);
+    rsegment_labeled(x, start, end, segments, label, shuffles, p);
 
-    return L;
+    //return L;
 }
 
 
-aiarray_t *calculate_validate(double x[], int length,  aiarray_t *L, int shuffles, double p)
+void calculate_validate_labeled(double x[], int length,  labeled_aiarray_t *segments, labeled_aiarray_t *vsegments, char *label, int shuffles, double p)
 {
     int i;
-    int S[L->nr + 1];
-    for (i = 0; i < L->nr; i++)
+    int S[segments->nr + 1];
+    for (i = 0; i < segments->nr; i++)
     {
-        S[i] = L->interval_list[i].start;
+        S[i] = segments->interval_list[i].start;
     }
     S[i] = length;
 
-    aiarray_t *SV = aiarray_init();
+    //labeled_aiarray_t *SV = labeled_aiarray_init();
     int segment_start = 0;
     int left = 0;
     double t;
 
     int test;
-    for (test = 0; test < L->nr-1; test++)
+    for (test = 0; test < segments->nr-1; test++)
     { 
         int slice_length = S[test+2] - S[left];
         double *tmp_slice_x = malloc(slice_length * sizeof(double));
@@ -118,14 +119,14 @@ aiarray_t *calculate_validate(double x[], int length,  aiarray_t *L, int shuffle
 
         if (flag == true)
         {
-            aiarray_add(SV, segment_start, S[test+1]);
+            labeled_aiarray_add(vsegments, segment_start, S[test+1], label);
             segment_start = S[test+1];
             left += 1;
         }
 
         free(tmp_xt);
     }
-    aiarray_add(SV, segment_start, S[i]);
+    labeled_aiarray_add(vsegments, segment_start, S[i], label);
 
-    return SV;
+    //return SV;
 }

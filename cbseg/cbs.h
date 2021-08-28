@@ -9,7 +9,9 @@
 #include <ctype.h>
 #include <math.h>
 #include <float.h>
-#include "augmented_interval_list.h"
+#include "src/augmented_interval_array.h"
+#include "src/labeled_augmented_array.h"
+//#include "utilities.c"
 
 //-------------------------------------------------------------------------------------
 
@@ -33,7 +35,10 @@ typedef struct {
     bool threshold;
 } cbs_stat_t;
 
+
 //-------------------------------------------------------------------------------------
+//                                    cbs_structs.c
+//=====================================================================================
 
 segment_t segment_init(int32_t start, int32_t end, double_t t);
 
@@ -47,10 +52,54 @@ double calculate_tstat(double x[], int i, int length);
 
 cbs_stat_t calculate_cbs(double x[], int length, int shuffles, double p);
 
-void rsegment(double x[], int start, int end, ailist_t *L, int shuffles, double p);
 
-ailist_t *calculate_segment(double x[], int length, int shuffles, double p);
+//-------------------------------------------------------------------------------------
+//                                    cbs.c
+//=====================================================================================
 
-ailist_t *calculate_validate(double x[], int length,  ailist_t *L, int shuffles, double p);
+void rsegment(double x[], int start, int end, aiarray_t *L, int shuffles, double p);
+
+aiarray_t *calculate_segment(double x[], int length, int shuffles, double p);
+
+aiarray_t *calculate_validate(double x[], int length,  aiarray_t *L, int shuffles, double p);
+
+
+//-------------------------------------------------------------------------------------
+//                                    cbs_labeled.c
+//=====================================================================================
+
+void rsegment_labeled(double x[], int start, int end, labeled_aiarray_t *segments, char *label, int shuffles, double p);
+
+void calculate_segment_labeled(double x[], int length, labeled_aiarray_t *segments, char *label, int shuffles, double p);
+
+void calculate_validate_labeled(double x[], int length,  labeled_aiarray_t *segments, labeled_aiarray_t *vsegments, char *label, int shuffles, double p);
+
+
+//-------------------------------------------------------------------------------------
+//                                    utilities.c
+//=====================================================================================
+
+index_pair_t max_pair_index(index_pair_t i1, index_pair_t i2);
+
+index_pair_t min_pair_index(index_pair_t i1, index_pair_t i2);
+
+index_pair_t max_pair_value(index_pair_t i1, index_pair_t i2);
+
+index_pair_t min_pair_value(index_pair_t i1, index_pair_t i2);
+
+double calculate_mean(double x[], int length);
+
+double *copy_array(double new_array[], double array[], int length);
+
+void swap(double *a, double *b);
+
+void shuffle_array(double array[], int length);
+
+void printArray(double array[], int n);
+
+double *slice_array(double new_array[], double array[], int start, int end);
+
+double square(double x);
+
 
 #endif
