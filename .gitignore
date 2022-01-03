@@ -4,7 +4,7 @@
 *~
 *.pyc
 build/*
-cbseg.egg-info/*
+ailist.egg-info/*
 dist/*
 writing/*
 
@@ -19,7 +19,6 @@ writing/*
 
 # Mac OS files
 .DS_Store
-.Rhistory
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -120,3 +119,6 @@ ENV/
 
 # mypy
 .mypy_cache/
+
+# R files
+.Rhistory

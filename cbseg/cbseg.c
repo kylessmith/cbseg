@@ -1397,7 +1397,7 @@ struct __pyx_obj_6ailist_20LabeledInterval_core_LabeledInterval {
 };
 
 
-/* "ailist/LabeledIntervalArray_core.pxd":413
+/* "ailist/LabeledIntervalArray_core.pxd":416
  * cpdef object rebuild_LabeledIntervalArray(bytes data, bytes b_length, bytes b_label_list)
  * 
  * cdef class LabeledIntervalArray(object):             # <<<<<<<<<<<<<<
@@ -1556,7 +1556,7 @@ struct __pyx_vtabstruct_6ailist_20LabeledInterval_core_LabeledInterval {
 static struct __pyx_vtabstruct_6ailist_20LabeledInterval_core_LabeledInterval *__pyx_vtabptr_6ailist_20LabeledInterval_core_LabeledInterval;
 
 
-/* "ailist/LabeledIntervalArray_core.pxd":413
+/* "ailist/LabeledIntervalArray_core.pxd":416
  * cpdef object rebuild_LabeledIntervalArray(bytes data, bytes b_length, bytes b_label_list)
  * 
  * cdef class LabeledIntervalArray(object):             # <<<<<<<<<<<<<<
@@ -20369,11 +20369,11 @@ static int __Pyx_modinit_type_import_code(void) {
    if (!__pyx_ptype_6ailist_20LabeledInterval_core_LabeledInterval) __PYX_ERR(6, 24, __pyx_L1_error)
   __pyx_vtabptr_6ailist_20LabeledInterval_core_LabeledInterval = (struct __pyx_vtabstruct_6ailist_20LabeledInterval_core_LabeledInterval*)__Pyx_GetVtable(__pyx_ptype_6ailist_20LabeledInterval_core_LabeledInterval->tp_dict); if (unlikely(!__pyx_vtabptr_6ailist_20LabeledInterval_core_LabeledInterval)) __PYX_ERR(6, 24, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
-  __pyx_t_1 = PyImport_ImportModule("ailist.LabeledIntervalArray_core"); if (unlikely(!__pyx_t_1)) __PYX_ERR(7, 413, __pyx_L1_error)
+  __pyx_t_1 = PyImport_ImportModule("ailist.LabeledIntervalArray_core"); if (unlikely(!__pyx_t_1)) __PYX_ERR(7, 416, __pyx_L1_error)
   __Pyx_GOTREF(__pyx_t_1);
   __pyx_ptype_6ailist_25LabeledIntervalArray_core_LabeledIntervalArray = __Pyx_ImportType(__pyx_t_1, "ailist.LabeledIntervalArray_core", "LabeledIntervalArray", sizeof(struct __pyx_obj_6ailist_25LabeledIntervalArray_core_LabeledIntervalArray), __Pyx_ImportType_CheckSize_Warn);
-   if (!__pyx_ptype_6ailist_25LabeledIntervalArray_core_LabeledIntervalArray) __PYX_ERR(7, 413, __pyx_L1_error)
-  __pyx_vtabptr_6ailist_25LabeledIntervalArray_core_LabeledIntervalArray = (struct __pyx_vtabstruct_6ailist_25LabeledIntervalArray_core_LabeledIntervalArray*)__Pyx_GetVtable(__pyx_ptype_6ailist_25LabeledIntervalArray_core_LabeledIntervalArray->tp_dict); if (unlikely(!__pyx_vtabptr_6ailist_25LabeledIntervalArray_core_LabeledIntervalArray)) __PYX_ERR(7, 413, __pyx_L1_error)
+   if (!__pyx_ptype_6ailist_25LabeledIntervalArray_core_LabeledIntervalArray) __PYX_ERR(7, 416, __pyx_L1_error)
+  __pyx_vtabptr_6ailist_25LabeledIntervalArray_core_LabeledIntervalArray = (struct __pyx_vtabstruct_6ailist_25LabeledIntervalArray_core_LabeledIntervalArray*)__Pyx_GetVtable(__pyx_ptype_6ailist_25LabeledIntervalArray_core_LabeledIntervalArray->tp_dict); if (unlikely(!__pyx_vtabptr_6ailist_25LabeledIntervalArray_core_LabeledIntervalArray)) __PYX_ERR(7, 416, __pyx_L1_error)
   __Pyx_DECREF(__pyx_t_1); __pyx_t_1 = 0;
   __Pyx_RefNannyFinishContext();
   return 0;
