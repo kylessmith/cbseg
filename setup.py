@@ -14,7 +14,9 @@ build_type = "optimized"
 
 # Descriptions of package
 SHORTDESC = "Python package for Circular Binary Segmentation"
-DESC = """A python package wrapper for a C implementation of Circular Binary Segmentation."""
+with open("README.md", "r") as fh:
+    long_description = fh.read()
+#DESC = """A python package wrapper for a C implementation of Circular Binary Segmentation."""
 
 # Directories (relative to the top-level directory where setup.py resides) in which to look for data files.
 datadirs  = ("tests",)
@@ -193,7 +195,8 @@ setup(
     author_email = "kyle.smith@stjude.org",
     url = "https://github.com/kylessmtih/cbseg",
     description = SHORTDESC,
-    long_description = DESC,
+    long_description = long_description,
+    long_description_content_type = "text/markdown",
     # CHANGE THIS
     license = "GPL2",
     # free-form text field
@@ -202,7 +205,6 @@ setup(
                     "Environment :: Console",
                     "Intended Audience :: Developers",
                     "Intended Audience :: Science/Research",
-                    "License :: GPL2", 
                     "Operating System :: POSIX :: Linux",
                     "Programming Language :: Cython",
                     "Programming Language :: Python",

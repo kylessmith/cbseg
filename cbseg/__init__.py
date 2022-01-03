@@ -5,4 +5,4 @@ from .cbseg import determine_cbs_stat, determine_t_stat, determine_cbs, segment,
 from .cbseg import get_include
 
 # This is extracted automatically by the top-level setup.py.
-__version__ = '0.1.0'
+__version__ = '1.0.0'
