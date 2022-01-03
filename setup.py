@@ -214,7 +214,7 @@ setup(
                     "Topic :: Software Development :: Libraries :: Python Modules"
                   ],
     setup_requires = ["cython", "numpy", "ailist"],
-    install_requires = ["numpy", "ailist"],
+    install_requires = ["cython", "numpy", "ailist"],
     provides = ["cbseg"],
     keywords = ["cython circular binaray segmentation c"],
     ext_modules = my_ext_modules,
