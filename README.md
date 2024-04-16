@@ -10,6 +10,8 @@ the corresponding p-value.
 
 All citations should reference to [original paper][paper].
 
+## Deprecated. See linear_segment package
+
 ## Install
 
 If you dont already have numpy and scipy installed, it is best to download
